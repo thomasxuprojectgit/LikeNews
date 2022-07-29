@@ -13,6 +13,8 @@ import com.laioffer.tinnews.R;
 // auto create Fragment, no need to new
 public class HomeFragment extends Fragment {
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

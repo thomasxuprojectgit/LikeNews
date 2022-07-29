@@ -3,7 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.laioffer.tinnews">
 
+<!--    permission from user, internet is not need user to agree-->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".TinNewsApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"

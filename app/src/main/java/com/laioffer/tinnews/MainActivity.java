@@ -5,6 +5,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
+
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -28,14 +29,35 @@ public class MainActivity extends AppCompatActivity {
 
 //        connect three button to navHostFragment
         NavigationUI.setupWithNavController(navView, navController);
-
+          // setup back in the top bar(action bar)
         NavigationUI.setupActionBarWithNavController(this, navController);
+
+//        NewsApi api = RetrofitClient.newInstance().create(NewsApi.class);
+//        // repeating enqueue the responses (Call<Response>) from API call
+//        api.getTopHeadlines("US").enqueue(new Callback<NewsResponse>() {
+//
+//                // if get response
+//                @Override public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
+//                     if (response.isSuccessful()) {
+//                         Log.d("getTopHeadlines", response.body().toString());
+//                     } else {
+//                         Log.d("getTopHeadlines", response.toString());
+//                     }
+//                }
+//
+//                // if not get response
+//                @Override
+//                public void onFailure(Call<NewsResponse> call, Throwable t) {
+//                        Log.d("getTopHeadlines", t.toString());
+//                }
+//        });
+
     }
 
 
     @Override
     public boolean onSupportNavigateUp() {
-//         use back to home
+//         use back to previous screen
         return navController.navigateUp();
         }
 
