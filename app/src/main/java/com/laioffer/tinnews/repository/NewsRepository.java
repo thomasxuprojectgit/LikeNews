@@ -40,6 +40,7 @@ public class NewsRepository {
                         topHeadlinesLiveData.setValue(null);
                     }
                 });
+//        因为是异步， 一个thread先执行44, 另外一个thread 执行25行
         return topHeadlinesLiveData;
     }
 

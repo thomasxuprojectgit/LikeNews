@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        connect three button to navHostFragment
         NavigationUI.setupWithNavController(navView, navController);
-          // setup back in the top bar(action bar)
+          // setup back in the top bar(action bar), connect top bar with fragement controller
         NavigationUI.setupActionBarWithNavController(this, navController);
 
 //        NewsApi api = RetrofitClient.newInstance().create(NewsApi.class);

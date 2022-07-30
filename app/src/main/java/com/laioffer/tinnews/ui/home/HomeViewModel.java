@@ -18,12 +18,16 @@ public class HomeViewModel extends ViewModel {
         this.repository = newsRepository;
     }
 
+    // get input from View
     public void setCountryInput(String country) {
         countryInput.setValue(country);
     }
 
     public LiveData<NewsResponse> getTopHeadlines() {
-        // countryInput -> newsResponse
+        // List of String (countryInput) -> List of LiveData (newsResponse)
+        // :: 代表function reference
+        // 必须要这个写，不能直接getTopHeadlines(String country), 原因是一旦View的countryInput改变，就会
+        // repository::getTopHeadlines就会被call, 这样不用不停创建observe
         return Transformations.switchMap(countryInput, repository::getTopHeadlines);
     }
 }
