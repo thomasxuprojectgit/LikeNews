@@ -35,6 +35,8 @@ android {
 
 dependencies {
 
+    // picasso 
+    implementation 'com.squareup.picasso:picasso:2.71828'
     // lifecycle
     annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.2.0'
