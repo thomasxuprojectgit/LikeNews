@@ -33,6 +33,7 @@ public class SearchNewsAdapter extends RecyclerView.Adapter<SearchNewsAdapter.Se
 
     // 下面override RecyclerView的三个方法
     // viewType 没用到，区分不同view 种类
+    // 上下滑动的时候会一直保持恒定的view holder
     @NonNull
     @Override
     public SearchNewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,11 +41,13 @@ public class SearchNewsAdapter extends RecyclerView.Adapter<SearchNewsAdapter.Se
         return new SearchNewsViewHolder(view);
     }
 
+    // 上下滑动的时候会不停bind, 和sliding window比较像
     @Override
     public void onBindViewHolder(@NonNull SearchNewsViewHolder holder, int position) {
         Article article = articles.get(position);
         holder.itemTitleTextView.setText(article.title);
         if (article.urlToImage != null) {
+            // load ariticle's URL to image, resize and then input into image holder
             Picasso.get().load(article.urlToImage).resize(200, 200).
                 into(holder.itemImageView);
             }

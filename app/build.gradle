@@ -35,6 +35,9 @@ android {
 
 dependencies {
 
+    // CardStackView 
+    implementation files("libs/card-stack-view-2.3.4.aar")
+
     // picasso 
     implementation 'com.squareup.picasso:picasso:2.71828'
     // lifecycle
@@ -48,7 +51,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 
-//    for navigation
+    // for navigation
     implementation 'androidx.navigation:navigation-fragment:2.3.5'
     implementation 'androidx.navigation:navigation-ui:2.3.5'
 
