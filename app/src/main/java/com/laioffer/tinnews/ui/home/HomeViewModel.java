@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 
+import com.laioffer.tinnews.model.Article;
 import com.laioffer.tinnews.model.NewsResponse;
 import com.laioffer.tinnews.repository.NewsRepository;
 
@@ -29,5 +30,10 @@ public class HomeViewModel extends ViewModel {
         // 必须要这个写，不能直接getTopHeadlines(String country), 原因是一旦View的countryInput改变，就会
         // repository::getTopHeadlines就会被call, 这样不用不停创建observe
         return Transformations.switchMap(countryInput, repository::getTopHeadlines);
+    }
+
+    // save article
+    public void setFavoriteArticleInput(Article article) {
+        repository.favoriteArticle(article);
     }
 }

@@ -1,7 +1,12 @@
 package com.laioffer.tinnews.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.Objects;
 
+@Entity
 public class Article {
     // name is important, need to deserialized from json to java obj(check json file response from News API)
     public String author;
@@ -9,6 +14,8 @@ public class Article {
     public String description;
     public String publishedAt;
     public String title;
+    @NonNull
+    @PrimaryKey
     public String url;
     public String urlToImage;
 
