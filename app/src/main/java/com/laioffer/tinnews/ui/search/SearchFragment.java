@@ -17,6 +17,7 @@ import com.laioffer.tinnews.databinding.FragmentSearchBinding;
 import com.laioffer.tinnews.repository.NewsRepository;
 import com.laioffer.tinnews.repository.NewsViewModelFactory;
 import androidx.appcompat.widget.SearchView;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 public class SearchFragment extends Fragment {
@@ -89,6 +90,12 @@ public class SearchFragment extends Fragment {
                                 newsAdapter.setArticles(newsResponse.articles);
                             }
                         });
+
+        newsAdapter.setItemCallback(article -> {
+            SearchFragmentDirections.ActionNavigationSearchToNavigationDetails direction = SearchFragmentDirections.actionNavigationSearchToNavigationDetails(article);
+            NavHostFragment.findNavController(SearchFragment.this).navigate(direction);
+        });
+
 
     }
 

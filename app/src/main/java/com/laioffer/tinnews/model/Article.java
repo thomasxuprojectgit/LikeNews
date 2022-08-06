@@ -4,10 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class Article {
+public class Article implements Serializable {
     // name is important, need to deserialized from json to java obj(check json file response from News API)
     public String author;
     public String content;

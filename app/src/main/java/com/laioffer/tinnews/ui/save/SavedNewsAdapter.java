@@ -26,6 +26,19 @@ public class SavedNewsAdapter extends RecyclerView.Adapter<SavedNewsAdapter.Save
         notifyDataSetChanged();
     }
 
+    interface ItemCallback {
+
+        void onOpenDetails(Article article);
+        void onRemoveFavorite(Article article);
+    }
+
+    private ItemCallback itemCallback;
+
+    public void setItemCallback(ItemCallback itemCallback) {
+        this.itemCallback = itemCallback;
+    }
+
+
     @NonNull
     @Override
     public SavedNewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,6 +52,8 @@ public class SavedNewsAdapter extends RecyclerView.Adapter<SavedNewsAdapter.Save
         Article article = articles.get(position);
         holder.authorTextView.setText(article.author);
         holder.descriptionTextView.setText(article.description);
+        holder.favoriteIcon.setOnClickListener(v -> itemCallback.onRemoveFavorite(article));
+        holder.itemView.setOnClickListener(v -> itemCallback.onOpenDetails(article));
     }
 
     @Override
@@ -66,19 +81,6 @@ public class SavedNewsAdapter extends RecyclerView.Adapter<SavedNewsAdapter.Save
     // 3. SavedNewsViewHolder:
 
 
-
-
-    interface ItemCallback {
-
-        void onOpenDetails(Article article);
-        void onRemoveFavorite(Article article);
-    }
-
-    private ItemCallback itemCallback;
-
-    public void setItemCallback(ItemCallback itemCallback) {
-        this.itemCallback = itemCallback;
-    }
 
 
 
